@@ -1,2 +1,3 @@
-# library-app
-Library app project
+# Library
+
+A library app project
