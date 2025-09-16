@@ -53,4 +53,6 @@ function displayBooks() {
   });
 }
 
+function addBook() {}
+
 displayBooks();
