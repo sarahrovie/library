@@ -14,13 +14,42 @@
         <p>All your books in one place!</p>
       </div>
       <div>
-        <button type="submit" id="showModal">Add Book</button>
+        <button type="submit" id="showDialog">Add Book</button>
       </div>
     </header>
     <main class="main-content">
-      <dialog>
-        <p>Add new book to library:</p>
-        <button autofocus id="closeModal">Close</button>
+      <dialog id="addBookDialog">
+        <form method="dialog">
+          <p>Add new book to library:</p>
+          <label for="title">
+            Title:
+            <input type="text" name="title" id="title" required />
+          </label>
+          <br />
+          <label for="author">
+            Author:
+            <input type="text" name="author" id="author" required />
+          </label>
+          <br />
+          <label for="pages">
+            Pages:
+            <input type="number" name="pages" id="pages" required />
+          </label>
+          <br />
+          <label for="status">
+            Status:
+            <span>Read</span>
+            <input type="radio" name="status" value="read" required />
+            <span>Not read</span>
+            <input type="radio" name="status" value="not-read" />
+          </label>
+          <div>
+            <button id="cancelBtn" value="cancel">Cancel</button>
+            <button id="confirmBtn" type="submit" formmethod="dialog">
+              Confirm
+            </button>
+          </div>
+        </form>
       </dialog>
     </main>
   </body>

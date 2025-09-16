@@ -1,7 +1,9 @@
 const main = document.querySelector('.main-content');
-const dialog = document.querySelector('dialog');
-const showModal = document.querySelector('#showModal');
-const closeModal = document.querySelector('#closeModal');
+const addBookDialog = document.querySelector('#addBookDialog');
+const showBtn = document.querySelector('#showDialog');
+const confirmBtn = document.querySelector('#confirmBtn');
+const cancelBtn = document.querySelector('#cancelBtn');
+const form = document.querySelector('form');
 
 const myLibrary = [];
 
@@ -57,14 +59,26 @@ function displayBooks() {
   });
 }
 
-function addBook() {}
+function addBook(event) {
+  event.preventDefault();
 
-showModal.addEventListener('click', () => {
-  dialog.showModal();
+  const data = new FormData(event.target);
+  data.forEach((value, key) => {
+    console.log(`${key}: ${value}`);
+  });
+
+  addBookDialog.close();
+}
+
+showBtn.addEventListener('click', () => {
+  addBookDialog.showModal();
 });
 
-closeModal.addEventListener('click', () => {
-  dialog.close();
+cancelBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  addBookDialog.close();
 });
+
+form.addEventListener('submit', addBook);
 
 displayBooks();
