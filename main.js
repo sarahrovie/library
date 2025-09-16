@@ -1,4 +1,8 @@
 const main = document.querySelector('.main-content');
+const dialog = document.querySelector('dialog');
+const showModal = document.querySelector('#showModal');
+const closeModal = document.querySelector('#closeModal');
+
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -54,5 +58,13 @@ function displayBooks() {
 }
 
 function addBook() {}
+
+showModal.addEventListener('click', () => {
+  dialog.showModal();
+});
+
+closeModal.addEventListener('click', () => {
+  dialog.close();
+});
 
 displayBooks();
