@@ -1,3 +1,4 @@
+const main = document.querySelector('.main-content');
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -16,5 +17,26 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(book);
 }
 
-addBookToLibrary('The Hobbit', 'J.R.R Tolkien', '295', false);
-console.log(myLibrary);
+addBookToLibrary('The Hobbit', 'J.R.R Tolkien', 295, false);
+addBookToLibrary(
+  "Alice's Adventures In Wonderland",
+  'Lewis Carroll',
+  352,
+  true
+);
+
+function displayBooks() {
+  myLibrary.forEach((book) => {
+    const card = document.createElement('div');
+    card.classList.add('book-card');
+    card.setAttribute('id', book.id);
+
+    const h2 = document.createElement('h2');
+    h2.textContent = book.title;
+
+    card.appendChild(h2);
+    main.appendChild(card);
+  });
+}
+
+displayBooks();
