@@ -31,10 +31,24 @@ function displayBooks() {
     card.classList.add('book-card');
     card.setAttribute('id', book.id);
 
-    const h2 = document.createElement('h2');
-    h2.textContent = book.title;
+    const title = document.createElement('h2');
+    title.textContent = book.title;
 
-    card.appendChild(h2);
+    const info = document.createElement('span');
+    info.classList.add('info');
+
+    const author = document.createElement('p');
+    author.textContent = `Author: ${book.author}`;
+
+    const pages = document.createElement('p');
+    pages.textContent = `Pages: ${book.pages}`;
+
+    const status = document.createElement('p');
+    status.textContent = `${book.read ? 'read' : 'not read'}`;
+    status.style.color = `${book.read ? 'green' : 'red'}`;
+
+    info.append(author, pages, status);
+    card.append(title, info);
     main.appendChild(card);
   });
 }
