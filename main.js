@@ -63,11 +63,15 @@ function addBook(event) {
   event.preventDefault();
 
   const data = new FormData(event.target);
-  data.forEach((value, key) => {
-    console.log(`${key}: ${value}`);
-  });
+  const title = data.get('title');
+  const author = data.get('author');
+  const pages = data.get('pages');
+  const read = `${!data.get('read') ? false : true}`;
+
+  console.log(title, author, pages, read);
 
   addBookDialog.close();
+  form.reset();
 }
 
 showBtn.addEventListener('click', () => {

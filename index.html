@@ -36,16 +36,13 @@
             <input type="number" name="pages" id="pages" required />
           </label>
           <br />
-          <label for="status">
-            Status:
-            <span>Read</span>
-            <input type="radio" name="status" value="read" required />
-            <span>Not read</span>
-            <input type="radio" name="status" value="not-read" />
+          <label for="read">
+            Read:
+            <input type="checkbox" name="read" id="read" />
           </label>
           <div>
-            <button id="cancelBtn" value="cancel">Cancel</button>
-            <button id="confirmBtn" type="submit" formmethod="dialog">
+            <button type="button" id="cancelBtn" value="cancel">Cancel</button>
+            <button type="submit" id="confirmBtn" formmethod="dialog">
               Confirm
             </button>
           </div>
