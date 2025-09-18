@@ -8,47 +8,46 @@
     <title>Library</title>
   </head>
   <body>
+    <dialog id="addBookDialog">
+      <form method="dialog">
+        <p>Add new book to library:</p>
+        <label for="title">
+          Title:
+          <input type="text" name="title" id="title" required />
+        </label>
+        <br />
+        <label for="author">
+          Author:
+          <input type="text" name="author" id="author" required />
+        </label>
+        <br />
+        <label for="pages">
+          Pages:
+          <input type="number" name="pages" id="pages" required />
+        </label>
+        <br />
+        <label for="read">
+          Read:
+          <input type="checkbox" name="read" id="read" />
+        </label>
+        <div>
+          <button type="reset" id="cancelBtn" value="cancel">Cancel</button>
+          <button type="submit" id="confirmBtn" formmethod="dialog">
+            Confirm
+          </button>
+        </div>
+      </form>
+    </dialog>
     <header>
       <div>
         <h1>My Library</h1>
         <p>All your books in one place!</p>
       </div>
       <div>
-        <button type="submit" id="showDialog">Add Book</button>
+        <button id="showDialog">Add Book</button>
       </div>
     </header>
-    <main class="main-content">
-      <dialog id="addBookDialog">
-        <form method="dialog">
-          <p>Add new book to library:</p>
-          <label for="title">
-            Title:
-            <input type="text" name="title" id="title" required />
-          </label>
-          <br />
-          <label for="author">
-            Author:
-            <input type="text" name="author" id="author" required />
-          </label>
-          <br />
-          <label for="pages">
-            Pages:
-            <input type="number" name="pages" id="pages" required />
-          </label>
-          <br />
-          <label for="read">
-            Read:
-            <input type="checkbox" name="read" id="read" />
-          </label>
-          <div>
-            <button type="button" id="cancelBtn" value="cancel">Cancel</button>
-            <button type="submit" id="confirmBtn" formmethod="dialog">
-              Confirm
-            </button>
-          </div>
-        </form>
-      </dialog>
-    </main>
+    <main class="main-content"></main>
   </body>
   <script src="main.js"></script>
 </html>

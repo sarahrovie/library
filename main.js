@@ -5,7 +5,7 @@ const confirmBtn = document.querySelector('#confirmBtn');
 const cancelBtn = document.querySelector('#cancelBtn');
 const form = document.querySelector('form');
 
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
   if (!new.target) {
@@ -17,22 +17,10 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-function addBookToLibrary(title, author, pages, read) {
-  const book = new Book(title, author, pages, read);
-  book.id = crypto.randomUUID();
-  myLibrary.push(book);
-}
-
-addBookToLibrary('The Hobbit', 'J.R.R Tolkien', 295, false);
-addBookToLibrary(
-  "Alice's Adventures In Wonderland",
-  'Lewis Carroll',
-  352,
-  true
-);
-
 function displayBooks() {
-  myLibrary.forEach((book) => {
+  main.innerHTML = '';
+
+  for (const book of myLibrary) {
     const card = document.createElement('div');
     card.classList.add('book-card');
     card.setAttribute('id', book.id);
@@ -56,10 +44,25 @@ function displayBooks() {
     info.append(author, pages, status);
     card.append(title, info);
     main.appendChild(card);
-  });
+  }
 }
 
-function addBook(event) {
+function addBookToLibrary(title, author, pages, read) {
+  const book = new Book(title, author, pages, read);
+  book.id = crypto.randomUUID();
+  myLibrary.push(book);
+
+  displayBooks();
+}
+
+addBookToLibrary(
+  "Alice's Adventures In Wonderland",
+  'Lewis Carroll',
+  352,
+  true
+);
+
+function getBook(event) {
   event.preventDefault();
 
   const data = new FormData(event.target);
@@ -68,13 +71,13 @@ function addBook(event) {
   const pages = data.get('pages');
   const read = `${!data.get('read') ? false : true}`;
 
-  console.log(title, author, pages, read);
-
-  addBookDialog.close();
+  addBookToLibrary(title, author, pages, read);
   form.reset();
+  addBookDialog.close();
 }
 
-showBtn.addEventListener('click', () => {
+showBtn.addEventListener('click', (e) => {
+  e.preventDefault();
   addBookDialog.showModal();
 });
 
@@ -83,6 +86,4 @@ cancelBtn.addEventListener('click', (e) => {
   addBookDialog.close();
 });
 
-form.addEventListener('submit', addBook);
-
-displayBooks();
+form.addEventListener('submit', getBook);
