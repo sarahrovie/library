@@ -37,11 +37,11 @@ function displayBooks() {
     const pages = document.createElement('p');
     pages.textContent = `Pages: ${book.pages}`;
 
-    const status = document.createElement('p');
-    status.textContent = `${book.read ? 'read' : 'not read'}`;
-    status.style.color = `${book.read ? 'green' : 'red'}`;
+    const read = document.createElement('p');
+    read.textContent = `${book.read ? 'read' : 'not read'}`;
+    read.style.color = `${book.read ? 'green' : 'red'}`;
 
-    info.append(author, pages, status);
+    info.append(author, pages, read);
     card.append(title, info);
     main.appendChild(card);
   }
@@ -69,7 +69,7 @@ function getBook(event) {
   const title = data.get('title');
   const author = data.get('author');
   const pages = data.get('pages');
-  const read = `${!data.get('read') ? false : true}`;
+  const read = data.get('read') ? true : false;
 
   addBookToLibrary(title, author, pages, read);
   form.reset();
