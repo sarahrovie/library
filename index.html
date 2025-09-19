@@ -9,23 +9,17 @@
   </head>
   <body>
     <dialog id="addBookDialog">
-      <form method="dialog">
-        <p>Add new book to library:</p>
-        <label for="title">
-          Title:
-          <input type="text" name="title" id="title" required />
-        </label>
-        <br />
-        <label for="author">
-          Author:
-          <input type="text" name="author" id="author" required />
-        </label>
-        <br />
-        <label for="pages">
-          Pages:
-          <input type="number" name="pages" id="pages" required />
-        </label>
-        <br />
+      <form method="dialog" class="dialog-form">
+        <p>Add new book to library</p>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required />
+
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author" required />
+
+        <label for="pages">Pages:</label>
+        <input type="number" name="pages" id="pages" required />
+
         <label for="read">
           Read:
           <input type="checkbox" name="read" id="read" />
