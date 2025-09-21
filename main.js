@@ -20,6 +20,14 @@ function Book(title, author, pages, read) {
 function displayBooks() {
   main.innerHTML = '';
 
+  if (myLibrary.length === 0) {
+    const message = document.createElement('p');
+    message.textContent = 'No books yet!';
+    message.classList = 'no-books-message';
+
+    main.appendChild(message);
+  }
+
   for (const book of myLibrary) {
     const card = document.createElement('div');
     card.classList.add('book-card');

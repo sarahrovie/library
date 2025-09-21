@@ -119,6 +119,11 @@ header button:hover,
   padding: 2rem;
 }
 
+.main-content .no-books-message {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
 .book-card {
   display: grid;
   grid-template-rows: max-content 1fr;
