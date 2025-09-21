@@ -121,7 +121,7 @@ header button:hover,
 
 .book-card {
   display: grid;
-  grid-template-rows: 3fr 1fr;
+  grid-template-rows: max-content 1fr;
   padding: 0.8rem;
   background-color: #fff;
   color: #242424;
@@ -136,11 +136,28 @@ header button:hover,
   background-color: #ffe9ed;
 }
 
+.book-card .remove-btn {
+  background-color: transparent;
+  justify-self: end;
+  border: none;
+  width: 1.2rem;
+}
+
+.remove-btn svg {
+  fill: red;
+}
+
+.remove-btn svg:hover,
+.remove-btn svg:focus {
+  background-color: red;
+  fill: #ffe9ed;
+  border-radius: 10px;
+}
+
 .book-card h2 {
   text-align: center;
 }
 
 .info > :nth-child(3) {
-  text-align: right;
   font-style: normal;
 }
