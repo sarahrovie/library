@@ -47,6 +47,10 @@ function displayBooks() {
     removeBtn.setAttribute('data-book-id', `${book.id}`);
     removeBtn.innerHTML += svg;
 
+    removeBtn.addEventListener('click', () => {
+      removeBook(removeBtn.dataset.bookId);
+    });
+
     info.append(author, pages, read);
     card.append(removeBtn, title, info);
     main.appendChild(card);
@@ -80,6 +84,12 @@ function getBook(event) {
   addBookToLibrary(title, author, pages, read);
   form.reset();
   addBookDialog.close();
+}
+
+function removeBook(btnId) {
+  myLibrary = myLibrary.filter((book) => book.id !== btnId);
+
+  displayBooks();
 }
 
 showBtn.addEventListener('click', (e) => {
