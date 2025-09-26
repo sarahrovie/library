@@ -137,10 +137,6 @@ header button:hover,
   box-shadow: 5px 5px 5px rgba(153, 153, 153, 0.404);
 }
 
-.book-card:hover {
-  background-color: #ffe9ed;
-}
-
 .book-card .remove-btn {
   background-color: transparent;
   justify-self: end;
@@ -163,6 +159,25 @@ header button:hover,
   text-align: center;
 }
 
-.info > :nth-child(3) {
-  font-style: normal;
+.book-card .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info p:last-of-type {
+  display: inline-block;
+}
+
+.status-btn {
+  padding: 0.5rem;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(255, 212, 219);
+  font-size: 0.9rem;
+}
+
+.status-btn:hover {
+  background-color: #87cefa;
+  color: #fff;
 }
