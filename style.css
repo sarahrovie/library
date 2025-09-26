@@ -59,7 +59,7 @@ dialog:open {
   font-size: 0.9rem;
   background-color: #e4e4e4;
   padding: 7px;
-  border: none;
+  border: 1px solid lightgray;
   border-radius: 10px;
 }
 
@@ -177,7 +177,8 @@ header button:hover,
   font-size: 0.9rem;
 }
 
-.status-btn:hover {
+.status-btn:hover,
+.status-btn:active {
   background-color: #87cefa;
   color: #fff;
 }

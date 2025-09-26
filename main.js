@@ -17,6 +17,14 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+Book.prototype.changeStatus = function () {
+  if (this.read === true) {
+    this.read = false;
+  } else {
+    this.read = true;
+  }
+};
+
 function displayBooks() {
   main.innerHTML = '';
 
@@ -71,6 +79,11 @@ function displayBooks() {
     info.append(author, pages, read, statusBtn);
     card.append(removeBtn, title, info);
     main.appendChild(card);
+
+    statusBtn.addEventListener('click', () => {
+      book.changeStatus();
+      displayBooks();
+    });
   }
 }
 
