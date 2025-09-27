@@ -95,12 +95,7 @@ function addBookToLibrary(title, author, pages, read) {
   displayBooks();
 }
 
-addBookToLibrary(
-  "Alice's Adventures In Wonderland",
-  'Lewis Carroll',
-  352,
-  true
-);
+addBookToLibrary('Coraline', 'Neil Gaiman', 208, true);
 
 function getBook(event) {
   event.preventDefault();
