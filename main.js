@@ -57,7 +57,7 @@ function displayBooks() {
     const span = document.createElement('span');
     const read = document.createElement('p');
     read.textContent = 'Status: ';
-    readStatus.textContent = `${book.read ? 'Read' : 'Not read yet'}`;
+    readStatus.textContent = `${book.read ? 'read' : 'not read yet'}`;
     read.appendChild(span);
     span.appendChild(readStatus);
     readStatus.style.color = `${book.read ? 'green' : 'red'}`;
