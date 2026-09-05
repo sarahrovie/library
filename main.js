@@ -7,23 +7,22 @@ const form = document.querySelector('form');
 
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-  if (!new.target) {
-    throw Error("You must use the 'new' operator to call the constructor");
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
   }
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
 
-Book.prototype.changeStatus = function () {
-  if (this.read === true) {
-    this.read = false;
-  } else {
-    this.read = true;
+  readStatus() {
+    if (this.read === true) {
+      this.read = false;
+    } else {
+      this.read = true;
+    }
   }
-};
+}
 
 function displayBooks() {
   main.innerHTML = '';
@@ -81,7 +80,7 @@ function displayBooks() {
     main.appendChild(card);
 
     statusBtn.addEventListener('click', () => {
-      book.changeStatus();
+      book.readStatus();
       displayBooks();
     });
   }
